@@ -1,0 +1,74 @@
+table dim_data
+	lineageTag: 060ccbc3-0a39-4966-949e-50cc59d4617b
+	dataCategory: Time
+
+	column data
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 2852ce04-d38d-427b-ae76-4000456f129d
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column anno
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f826cce-7a9d-46eb-b5a5-659e575082ea
+		summarizeBy: none
+		sourceColumn: anno
+
+		annotation SummarizationSetBy = Automatic
+
+	column mese_numero
+		dataType: int64
+		formatString: 0
+		lineageTag: 455e0205-1c36-4187-a695-28c29761b455
+		summarizeBy: none
+		sourceColumn: mese_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column mese
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: f16c01e8-4a4b-4837-bef6-485cb7bd8618
+		summarizeBy: none
+		sourceColumn: mese
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column mese_nome
+		dataType: string
+		lineageTag: 9656933f-fd0a-44be-be61-075ea79c4266
+		summarizeBy: none
+		sourceColumn: mese_nome
+		sortByColumn: mese
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		dataType: string
+		lineageTag: 3a34cb2e-d0de-4bb6-9234-35a21a00bf95
+		summarizeBy: none
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_data = m
+		mode: import
+		source =
+				let
+				    Origine = Csv.Document(File.Contents(CartellaDati & "dim_data.csv"), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Intestazioni = Table.PromoteHeaders(Origine, [PromoteAllScalars=true]),
+				    Tipi = Table.TransformColumnTypes(Intestazioni, {{"data", type date}, {"anno", Int64.Type}, {"mese_numero", Int64.Type}, {"mese", type date}, {"mese_nome", type text}, {"trimestre", type text}}, "en-US")
+				in
+				    Tipi
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,24 @@
+relationship ab7da08e-7731-43da-917c-b46fbd8614d2
+	fromColumn: fatti_vendite.data
+	toColumn: dim_data.data
+
+relationship 7f138990-b4c9-4dc3-8993-23ee57205721
+	fromColumn: fatti_vendite.cliente_id
+	toColumn: dim_cliente.cliente_id
+
+relationship 06a34119-824f-482b-919e-d9f9d7130aa8
+	fromColumn: fatti_vendite.prodotto_id
+	toColumn: dim_prodotto.prodotto_id
+
+relationship f81b7d61-02ad-448f-90e3-b125db3923c6
+	fromColumn: fatti_scadenze.cliente_id
+	toColumn: dim_cliente.cliente_id
+
+relationship c745f714-4012-4cc3-a70c-a70c78e06514
+	fromColumn: fatti_magazzino.data
+	toColumn: dim_data.data
+
+relationship 6342f93d-508a-4373-a8d0-58a51f669605
+	fromColumn: fatti_magazzino.prodotto_id
+	toColumn: dim_prodotto.prodotto_id
+

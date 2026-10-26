@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 623.28440308167239
+          },
+          "nodeIndex": "dim_cliente",
+          "nodeLineageTag": "24808cac-572b-4e30-85c8-1451ce9a0045",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 826.41387644603537,
+            "y": 788.1105167122106
+          },
+          "nodeIndex": "dim_data",
+          "nodeLineageTag": "060ccbc3-0a39-4966-949e-50cc59d4617b",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 826.41387644603537,
+            "y": 475.20693822301769
+          },
+          "nodeIndex": "dim_prodotto",
+          "nodeLineageTag": "9785e679-8bfd-4c9a-972c-d1b869dd2c89",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 937.14077141982193,
+            "y": 0
+          },
+          "nodeIndex": "fatti_magazzino",
+          "nodeLineageTag": "2bb87264-c2c0-4f6a-9242-db5c11fe0855",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 413.20693822301769,
+            "y": 845.50306897650694
+          },
+          "nodeIndex": "fatti_scadenze",
+          "nodeLineageTag": "deaabd7c-f3f0-42ba-8074-d336c6905f9b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 413.20693822301769,
+            "y": 396.92770066435816
+          },
+          "nodeIndex": "fatti_vendite",
+          "nodeLineageTag": "a1bf4256-7705-4e02-8276-7b0a20c783ed",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Tutte le tabelle",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Tutte le tabelle",
+  "defaultDiagram": "Tutte le tabelle"
+}

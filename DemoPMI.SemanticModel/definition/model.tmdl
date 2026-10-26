@@ -1,0 +1,21 @@
+model Model
+	culture: it-IT
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: it-IT
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["CartellaDati", "dim_data", "dim_cliente", "dim_prodotto", "fatti_vendite", "fatti_scadenze", "fatti_magazzino"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_data
+ref table dim_cliente
+ref table dim_prodotto
+ref table fatti_vendite
+ref table fatti_scadenze
+ref table fatti_magazzino
+

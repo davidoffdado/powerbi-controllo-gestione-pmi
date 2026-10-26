@@ -1,0 +1,169 @@
+table fatti_vendite
+	lineageTag: a1bf4256-7705-4e02-8276-7b0a20c783ed
+
+	measure Ricavi = SUM ( fatti_vendite[ricavo] )
+		formatString: #,0 €
+		lineageTag: 95bb8d20-274c-4f66-bbad-bc7f02b6651e
+
+	measure 'Costo del venduto' = SUM ( fatti_vendite[costo] )
+		formatString: #,0 €
+		lineageTag: e32c164f-2b63-45e1-b882-9edcb515fbfd
+
+	measure 'Margine lordo' = [Ricavi] - [Costo del venduto]
+		formatString: #,0 €
+		lineageTag: 20731318-5fcd-4ec5-96c1-50858f9ef5d7
+
+	measure '% margine' = DIVIDE ( [Margine lordo], [Ricavi] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a97a0081-c84d-4f43-b269-2ce30e073d18
+
+	measure '% sconto' = DIVIDE ( SUM ( fatti_vendite[sconto] ), SUM ( fatti_vendite[ricavo_lordo] ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: cdd78453-701f-4ea8-81f2-7ab34919981e
+
+	measure 'Paia vendute' = SUM ( fatti_vendite[quantita] )
+		formatString: #,0
+		lineageTag: 9fdfa82e-ef1d-4850-9b84-22bd0bac729c
+
+	measure 'Ricavi anno precedente' = CALCULATE ( [Ricavi], SAMEPERIODLASTYEAR ( dim_data[data] ) )
+		formatString: #,0 €
+		lineageTag: f87e08cc-d556-4ffe-87a3-c2b068f37fc6
+
+	measure 'Var % ricavi' = DIVIDE ( [Ricavi] - [Ricavi anno precedente], [Ricavi anno precedente] )
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 7f28ad32-a24b-48c4-a59d-a5802e67d601
+
+	measure 'Ricavi 12 mesi' = CALCULATE ( [Ricavi], DATESINPERIOD ( dim_data[data], MAX ( dim_data[data] ), -12, MONTH ) )
+		formatString: #,0 €
+		lineageTag: 69529f30-c7f6-42aa-b5b6-c36b7ffe2fb2
+
+	measure 'Ricavi 12 mesi prima' = CALCULATE ( [Ricavi], DATESINPERIOD ( dim_data[data], EDATE ( MAX ( dim_data[data] ), -12 ), -12, MONTH ) )
+		formatString: #,0 €
+		lineageTag: dd40782e-dab2-424e-97e4-c1bf3ccad20d
+
+	measure 'Var % ricavi 12 mesi' = DIVIDE ( [Ricavi 12 mesi] - [Ricavi 12 mesi prima], [Ricavi 12 mesi prima] )
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: cb2595fe-d946-4a27-9288-4bc6eceefc72
+
+	measure '% margine 12 mesi' = CALCULATE ( [% margine], DATESINPERIOD ( dim_data[data], MAX ( dim_data[data] ), -12, MONTH ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: bc6c117c-4510-4a1a-adf9-b261a3f77a58
+
+	measure '% margine 12 mesi prima' = CALCULATE ( [% margine], DATESINPERIOD ( dim_data[data], EDATE ( MAX ( dim_data[data] ), -12 ), -12, MONTH ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 07a95ed7-e116-4abe-b541-057c747c3f57
+
+	measure 'Costo del venduto 12 mesi' = CALCULATE ( [Costo del venduto], DATESINPERIOD ( dim_data[data], MAX ( dim_data[data] ), -12, MONTH ) )
+		formatString: #,0 €
+		lineageTag: 73b73cf8-a8c4-4f62-8f71-310e4db08076
+
+	measure 'Colore var ricavi' =
+			SWITCH ( TRUE (),
+			    [Var % ricavi] > 0, "#5E7D63",
+			    [Var % ricavi] < 0, "#B3473A",
+			    "#2B2B2B"
+			)
+		lineageTag: ede8c103-4eea-4c32-9ff3-e062149485c6
+
+	measure 'Colore var ricavi 12 mesi' = IF ( [Var % ricavi 12 mesi] >= 0, "#5E7D63", "#B3473A" )
+		lineageTag: c0162e83-38ae-4ef7-ab56-2bdcd40e0334
+
+	measure 'Colore margine 12 mesi' = IF ( [% margine 12 mesi] >= [% margine 12 mesi prima], "#5E7D63", "#B3473A" )
+		lineageTag: 829a56a2-6603-4303-89f3-3995198d703b
+
+	measure 'Colore margine' =
+			VAR media = CALCULATE ( [% margine], ALLSELECTED ( dim_cliente ), ALLSELECTED ( dim_prodotto ) )
+			RETURN
+			    SWITCH ( TRUE (),
+			        [% margine] < media - 0.03, "#B3473A",
+			        [% margine] > media + 0.03, "#5E7D63",
+			        "#2B2B2B"
+			    )
+		lineageTag: 7ce96965-d453-4be5-9502-0b5a56d75af5
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: ba3085fc-5a8c-48bc-85e2-078db207308c
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cc08368a-e49e-41cc-bf1e-c311c47aa99a
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column prodotto_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ff5d49a3-b8cd-4a35-bade-feeb199d585e
+		summarizeBy: none
+		sourceColumn: prodotto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantita
+		dataType: int64
+		formatString: #,0
+		lineageTag: 18a8991c-ab55-4fad-8eec-33232d811736
+		summarizeBy: sum
+		sourceColumn: quantita
+
+		annotation SummarizationSetBy = Automatic
+
+	column ricavo_lordo
+		dataType: double
+		formatString: #,0 €
+		lineageTag: 4c6a9b42-4dc7-4c23-b9dc-cc02f54ba5b6
+		summarizeBy: sum
+		sourceColumn: ricavo_lordo
+
+		annotation SummarizationSetBy = Automatic
+
+	column sconto
+		dataType: double
+		formatString: #,0 €
+		lineageTag: adfdd7df-67a1-419d-a7df-2da0583ddb60
+		summarizeBy: sum
+		sourceColumn: sconto
+
+		annotation SummarizationSetBy = Automatic
+
+	column ricavo
+		dataType: double
+		formatString: #,0 €
+		lineageTag: 7ceec5a4-9b29-492b-bc96-f62d31d7de32
+		summarizeBy: sum
+		sourceColumn: ricavo
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo
+		dataType: double
+		formatString: #,0 €
+		lineageTag: 2e7d169b-af63-415c-9994-1720eacf0150
+		summarizeBy: sum
+		sourceColumn: costo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fatti_vendite = m
+		mode: import
+		source =
+				let
+				    Origine = Csv.Document(File.Contents(CartellaDati & "fatti_vendite.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Intestazioni = Table.PromoteHeaders(Origine, [PromoteAllScalars=true]),
+				    Tipi = Table.TransformColumnTypes(Intestazioni, {{"data", type date}, {"cliente_id", Int64.Type}, {"prodotto_id", Int64.Type}, {"quantita", Int64.Type}, {"ricavo_lordo", type number}, {"sconto", type number}, {"ricavo", type number}, {"costo", type number}}, "en-US")
+				in
+				    Tipi
+
+	annotation PBI_ResultType = Table
+

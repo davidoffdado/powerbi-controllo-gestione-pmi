@@ -1,0 +1,77 @@
+prodotto_id,articolo,linea,categoria,stagione,prezzo_listino,stagione_ordine,ultima_vendita,giorni_senza_vendite,fermo
+1,UO-SNK-001,Uomo,Sneaker,PE 2024,103.0,1,2024-06-25,827,True
+2,UO-SNK-002,Uomo,Sneaker,PE 2024,92.0,1,2024-06-26,826,True
+3,UO-SNK-003,Uomo,Sneaker,AI 2024,110.0,2,2024-12-31,638,True
+4,UO-SNK-004,Uomo,Sneaker,PE 2025,104.0,3,2025-06-30,457,True
+5,UO-SNK-005,Uomo,Sneaker,PE 2025,117.0,3,2025-06-30,457,True
+6,UO-SNK-006,Uomo,Sneaker,AI 2025,103.0,4,2025-12-31,273,True
+7,UO-SNK-007,Uomo,Sneaker,PE 2026,111.0,5,2026-06-30,92,False
+8,UO-SNK-008,Uomo,Sneaker,AI 2026,90.0,6,2026-09-30,0,False
+9,UO-SNK-009,Uomo,Sneaker,AI 2026,86.0,6,2026-09-30,0,False
+10,UO-SNK-010,Uomo,Sneaker,Continuativo,94.0,7,2026-09-30,0,False
+11,DO-SNK-011,Donna,Sneaker,PE 2024,95.0,1,2024-06-29,823,True
+12,DO-SNK-012,Donna,Sneaker,PE 2024,84.0,1,2024-06-26,826,True
+13,DO-SNK-013,Donna,Sneaker,AI 2024,95.0,2,2024-12-31,638,True
+14,DO-SNK-014,Donna,Sneaker,PE 2025,113.0,3,2025-06-30,457,True
+15,DO-SNK-015,Donna,Sneaker,PE 2025,102.0,3,2025-06-27,460,True
+16,DO-SNK-016,Donna,Sneaker,AI 2025,116.0,4,2025-12-30,274,True
+17,DO-SNK-017,Donna,Sneaker,PE 2026,114.0,5,2026-06-30,92,False
+18,DO-SNK-018,Donna,Sneaker,PE 2026,106.0,5,2026-06-29,93,False
+19,DO-SNK-019,Donna,Sneaker,AI 2026,87.0,6,2026-09-30,0,False
+20,DO-SNK-020,Donna,Sneaker,Continuativo,86.0,7,2026-09-30,0,False
+21,BA-SNK-021,Bambino,Sneaker,PE 2024,50.0,1,2024-06-25,827,True
+22,BA-SNK-022,Bambino,Sneaker,AI 2024,60.0,2,2024-12-26,643,True
+23,BA-SNK-023,Bambino,Sneaker,AI 2024,55.0,2,2024-12-30,639,True
+24,BA-SNK-024,Bambino,Sneaker,PE 2025,58.0,3,2025-06-27,460,True
+25,BA-SNK-025,Bambino,Sneaker,PE 2025,60.0,3,2025-06-30,457,True
+26,BA-SNK-026,Bambino,Sneaker,AI 2025,46.0,4,2025-12-31,273,True
+27,BA-SNK-027,Bambino,Sneaker,PE 2026,54.0,5,2026-06-30,92,False
+28,BA-SNK-028,Bambino,Sneaker,PE 2026,48.0,5,2026-06-29,93,False
+29,BA-SNK-029,Bambino,Sneaker,AI 2026,71.0,6,2026-09-30,0,False
+30,BA-SNK-030,Bambino,Sneaker,AI 2026,55.0,6,2026-09-30,0,False
+31,BA-SNK-031,Bambino,Sneaker,Continuativo,54.0,7,2026-09-30,0,False
+32,UO-MOC-032,Uomo,Mocassino,PE 2024,149.0,1,2024-06-29,823,True
+33,UO-MOC-033,Uomo,Mocassino,PE 2024,156.0,1,2024-06-26,826,True
+34,UO-MOC-034,Uomo,Mocassino,AI 2024,113.0,2,2024-12-31,638,True
+35,UO-MOC-035,Uomo,Mocassino,PE 2025,121.0,3,2025-06-29,458,True
+36,UO-MOC-036,Uomo,Mocassino,AI 2025,143.0,4,2025-12-31,273,True
+37,UO-MOC-037,Uomo,Mocassino,PE 2026,105.0,5,2026-06-29,93,False
+38,UO-MOC-038,Uomo,Mocassino,AI 2026,133.0,6,2026-09-30,0,False
+39,UO-MOC-039,Uomo,Mocassino,Continuativo,137.0,7,2026-09-30,0,False
+40,DO-MOC-040,Donna,Mocassino,PE 2024,115.0,1,2024-06-28,824,True
+41,DO-MOC-041,Donna,Mocassino,AI 2024,150.0,2,2024-12-29,640,True
+42,DO-MOC-042,Donna,Mocassino,AI 2024,143.0,2,2024-12-31,638,True
+43,DO-MOC-043,Donna,Mocassino,PE 2025,118.0,3,2025-06-30,457,True
+44,DO-MOC-044,Donna,Mocassino,PE 2025,152.0,3,2025-06-30,457,True
+45,DO-MOC-045,Donna,Mocassino,AI 2025,140.0,4,2025-12-30,274,True
+46,DO-MOC-046,Donna,Mocassino,AI 2025,149.0,4,2025-12-31,273,True
+47,DO-MOC-047,Donna,Mocassino,PE 2026,154.0,5,2026-06-28,94,False
+48,DO-MOC-048,Donna,Mocassino,AI 2026,123.0,6,2026-09-30,0,False
+49,DO-MOC-049,Donna,Mocassino,AI 2026,124.0,6,2026-09-30,0,False
+50,DO-MOC-050,Donna,Mocassino,Continuativo,112.0,7,2026-09-30,0,False
+51,UO-STV-051,Uomo,Stivaletto,AI 2024,138.0,2,2024-12-31,638,True
+52,UO-STV-052,Uomo,Stivaletto,AI 2025,149.0,4,2025-12-31,273,True
+53,UO-STV-053,Uomo,Stivaletto,AI 2026,197.0,6,2026-09-30,0,False
+54,UO-STV-054,Uomo,Stivaletto,AI 2026,156.0,6,2026-09-30,0,False
+55,DO-STV-055,Donna,Stivaletto,AI 2024,141.0,2,2024-12-31,638,True
+56,DO-STV-056,Donna,Stivaletto,AI 2024,193.0,2,2024-12-31,638,True
+57,DO-STV-057,Donna,Stivaletto,AI 2025,203.0,4,2025-12-31,273,True
+58,DO-STV-058,Donna,Stivaletto,AI 2026,187.0,6,2026-09-30,0,False
+59,DO-STV-059,Donna,Stivaletto,AI 2026,148.0,6,2026-09-30,0,False
+60,DO-SND-060,Donna,Sandalo,PE 2024,94.0,1,2024-06-30,822,True
+61,DO-SND-061,Donna,Sandalo,PE 2024,89.0,1,2024-06-29,823,True
+62,DO-SND-062,Donna,Sandalo,PE 2025,79.0,3,2025-06-30,457,True
+63,DO-SND-063,Donna,Sandalo,PE 2025,77.0,3,2025-06-27,460,True
+64,DO-SND-064,Donna,Sandalo,PE 2026,68.0,5,2026-06-29,93,False
+65,BA-SND-065,Bambino,Sandalo,PE 2024,41.0,1,2024-06-30,822,True
+66,BA-SND-066,Bambino,Sandalo,PE 2025,45.0,3,2025-06-30,457,True
+67,BA-SND-067,Bambino,Sandalo,PE 2026,44.0,5,2026-06-29,93,False
+68,BA-SND-068,Bambino,Sandalo,PE 2026,41.0,5,2026-06-26,96,False
+69,DO-DEC-069,Donna,Décolleté,PE 2024,124.0,1,2024-06-29,823,True
+70,DO-DEC-070,Donna,Décolleté,AI 2024,147.0,2,2024-12-31,638,True
+71,DO-DEC-071,Donna,Décolleté,PE 2025,161.0,3,2025-06-30,457,True
+72,DO-DEC-072,Donna,Décolleté,AI 2025,115.0,4,2025-12-31,273,True
+73,DO-DEC-073,Donna,Décolleté,PE 2026,120.0,5,2026-06-28,94,False
+74,DO-DEC-074,Donna,Décolleté,PE 2026,125.0,5,2026-06-30,92,False
+75,DO-DEC-075,Donna,Décolleté,AI 2026,148.0,6,2026-09-30,0,False
+76,DO-DEC-076,Donna,Décolleté,Continuativo,171.0,7,2026-09-30,0,False

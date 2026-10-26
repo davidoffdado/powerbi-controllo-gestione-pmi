@@ -1,0 +1,58 @@
+cliente_id,cliente,canale,paese,giorni_dilazione
+1,Negozio Milano 01,Negozi Italia,Italia,60
+2,Negozio Roma 01,Negozi Italia,Italia,60
+3,Negozio Torino 01,Negozi Italia,Italia,60
+4,Negozio Bologna 01,Negozi Italia,Italia,60
+5,Negozio Firenze 01,Negozi Italia,Italia,60
+6,Negozio Napoli 01,Negozi Italia,Italia,60
+7,Negozio Bari 01,Negozi Italia,Italia,60
+8,Negozio Verona 01,Negozi Italia,Italia,60
+9,Negozio Padova 01,Negozi Italia,Italia,60
+10,Negozio Ancona 01,Negozi Italia,Italia,60
+11,Negozio Pescara 01,Negozi Italia,Italia,60
+12,Negozio Genova 01,Negozi Italia,Italia,60
+13,Negozio Palermo 01,Negozi Italia,Italia,60
+14,Negozio Brescia 01,Negozi Italia,Italia,60
+15,Negozio Perugia 01,Negozi Italia,Italia,60
+16,Negozio Rimini 01,Negozi Italia,Italia,60
+17,Negozio Bergamo 01,Negozi Italia,Italia,60
+18,Negozio Trento 01,Negozi Italia,Italia,60
+19,Negozio Lecce 01,Negozi Italia,Italia,60
+20,Negozio Cagliari 01,Negozi Italia,Italia,60
+21,Negozio Milano 02,Negozi Italia,Italia,60
+22,Negozio Roma 02,Negozi Italia,Italia,60
+23,Negozio Torino 02,Negozi Italia,Italia,60
+24,Negozio Bologna 02,Negozi Italia,Italia,60
+25,Negozio Firenze 02,Negozi Italia,Italia,60
+26,Negozio Napoli 02,Negozi Italia,Italia,60
+27,Negozio Bari 02,Negozi Italia,Italia,60
+28,Negozio Verona 02,Negozi Italia,Italia,60
+29,Negozio Padova 02,Negozi Italia,Italia,60
+30,Negozio Ancona 02,Negozi Italia,Italia,60
+31,Negozio Pescara 02,Negozi Italia,Italia,60
+32,Negozio Genova 02,Negozi Italia,Italia,60
+33,Negozio Palermo 02,Negozi Italia,Italia,60
+34,Negozio Brescia 02,Negozi Italia,Italia,60
+35,Negozio Perugia 02,Negozi Italia,Italia,60
+36,Negozio Rimini 02,Negozi Italia,Italia,60
+37,Grossista Napoli,Ingrosso,Italia,90
+38,Grossista Milano,Ingrosso,Italia,90
+39,Grossista Bari,Ingrosso,Italia,90
+40,Grossista Roma,Ingrosso,Italia,90
+41,Grossista Verona,Ingrosso,Italia,90
+42,Grossista Palermo,Ingrosso,Italia,90
+43,Grossista Bologna,Ingrosso,Italia,90
+44,Grossista Torino,Ingrosso,Italia,90
+45,Distributore Germania,Estero,Germania,30
+46,Distributore Francia,Estero,Francia,30
+47,Distributore Svizzera,Estero,Svizzera,30
+48,Distributore Austria,Estero,Austria,30
+49,Distributore Belgio,Estero,Belgio,30
+50,Distributore Paesi Bassi,Estero,Paesi Bassi,30
+51,Distributore Regno Unito,Estero,Regno Unito,30
+52,Distributore Stati Uniti,Estero,Stati Uniti,30
+53,Distributore Giappone,Estero,Giappone,30
+54,Distributore Corea del Sud,Estero,Corea del Sud,30
+55,Distributore Spagna,Estero,Spagna,30
+56,Distributore Danimarca,Estero,Danimarca,30
+57,Sito e-commerce aziendale,E-commerce,Italia,0

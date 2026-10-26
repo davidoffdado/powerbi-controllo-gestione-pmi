@@ -1,0 +1,5 @@
+expression CartellaDati = "C:\Users\David\Desktop\powerbi-demo-pmi\dati\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 8bca2cee-060e-4d0e-8f13-ba603a22084d
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,152 @@
+table fatti_scadenze
+	lineageTag: deaabd7c-f3f0-42ba-8074-d336c6905f9b
+
+	measure 'Crediti aperti' = CALCULATE ( SUM ( fatti_scadenze[importo] ), fatti_scadenze[stato] = "Aperta" )
+		formatString: #,0 €
+		lineageTag: e7eb6212-2b83-4315-931a-eff775b67337
+
+	measure 'Crediti scaduti' =
+			CALCULATE (
+			    SUM ( fatti_scadenze[importo] ),
+			    fatti_scadenze[stato] = "Aperta",
+			    fatti_scadenze[fascia_ordine] >= 2
+			)
+		formatString: #,0 €
+		lineageTag: 3470c1b5-ec7b-4015-87a0-155c5c026058
+
+	measure '% scaduto' = DIVIDE ( [Crediti scaduti], [Crediti aperti] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 794c9907-8c47-4e29-8eec-df822d61215d
+
+	measure 'Ritardo medio (giorni)' = AVERAGE ( fatti_scadenze[giorni_ritardo] )
+		formatString: 0.0
+		lineageTag: 64bfabed-6ea0-40fc-bd0a-4b6a04fb7550
+
+	measure 'Giorni medi di incasso' = AVERAGE ( fatti_scadenze[giorni_incasso] )
+		formatString: 0
+		lineageTag: 21066383-d11c-4249-b2a3-256955f0ea84
+
+	measure 'Colore ritardo' =
+			SWITCH ( TRUE (),
+			    [Ritardo medio (giorni)] > 30, "#B3473A",
+			    [Ritardo medio (giorni)] <= 5, "#5E7D63",
+			    "#2B2B2B"
+			)
+		lineageTag: 8485df1b-4ac0-4b3b-aec9-b4f8f68d46e6
+
+	column fattura
+		dataType: string
+		lineageTag: e2401536-bbef-44fe-a06d-a254e7e0f6cd
+		summarizeBy: none
+		sourceColumn: fattura
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d2c29b93-7841-43bb-becf-634f668d48fa
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_fattura
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 577a5185-26d2-40db-a0f2-949924e73cbb
+		summarizeBy: none
+		sourceColumn: data_fattura
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_scadenza
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 3f05c0c6-5ea0-40c5-ad70-8250d214e407
+		summarizeBy: none
+		sourceColumn: data_scadenza
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_incasso
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: fe4c2e5e-d806-48d5-90d6-b2a83f877df3
+		summarizeBy: none
+		sourceColumn: data_incasso
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column importo
+		dataType: double
+		formatString: #,0 €
+		lineageTag: c7066adb-61cc-48e5-b844-4c27cf84cbcd
+		summarizeBy: sum
+		sourceColumn: importo
+
+		annotation SummarizationSetBy = Automatic
+
+	column stato
+		dataType: string
+		lineageTag: e9fbb3ff-d149-4bc1-b1c5-7368bd457f3c
+		summarizeBy: none
+		sourceColumn: stato
+
+		annotation SummarizationSetBy = Automatic
+
+	column fascia
+		dataType: string
+		lineageTag: 4c53e759-855a-48d7-909c-d27644b43284
+		summarizeBy: none
+		sourceColumn: fascia
+		sortByColumn: fascia_ordine
+
+		annotation SummarizationSetBy = Automatic
+
+	column fascia_ordine
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e9878ad7-fdd3-4d37-92af-d5c1fe9dbb68
+		summarizeBy: none
+		sourceColumn: fascia_ordine
+
+		annotation SummarizationSetBy = Automatic
+
+	column giorni_ritardo
+		dataType: int64
+		formatString: 0
+		lineageTag: a8468b81-9046-4e0c-a729-b4bc1e9d5f25
+		summarizeBy: average
+		sourceColumn: giorni_ritardo
+
+		annotation SummarizationSetBy = Automatic
+
+	column giorni_incasso
+		dataType: int64
+		formatString: 0
+		lineageTag: 21635986-f46f-498a-b6bd-b458b347f686
+		summarizeBy: average
+		sourceColumn: giorni_incasso
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fatti_scadenze = m
+		mode: import
+		source =
+				let
+				    Origine = Csv.Document(File.Contents(CartellaDati & "fatti_scadenze.csv"), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Intestazioni = Table.PromoteHeaders(Origine, [PromoteAllScalars=true]),
+				    Tipi = Table.TransformColumnTypes(Intestazioni, {{"fattura", type text}, {"cliente_id", Int64.Type}, {"data_fattura", type date}, {"data_scadenza", type date}, {"data_incasso", type date}, {"importo", type number}, {"stato", type text}, {"fascia", type text}, {"fascia_ordine", Int64.Type}, {"giorni_ritardo", Int64.Type}, {"giorni_incasso", Int64.Type}}, "en-US")
+				in
+				    Tipi
+
+	annotation PBI_ResultType = Table
+

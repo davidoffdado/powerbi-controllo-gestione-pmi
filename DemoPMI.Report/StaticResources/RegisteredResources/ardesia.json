@@ -1,0 +1,41 @@
+{
+  "name": "Ardesia",
+  "dataColors": [
+    "#8B4A2B",
+    "#B8B0A6",
+    "#2B2B2B",
+    "#C98B5E",
+    "#5E7D63",
+    "#B3473A",
+    "#7A6F66",
+    "#D9CFC3"
+  ],
+  "foreground": "#2B2B2B",
+  "foregroundNeutralSecondary": "#6E665E",
+  "foregroundNeutralTertiary": "#B8B0A6",
+  "background": "#FFFFFF",
+  "backgroundLight": "#F3EDE4",
+  "backgroundNeutral": "#E6DED3",
+  "tableAccent": "#8B4A2B",
+  "good": "#5E7D63",
+  "neutral": "#B8B0A6",
+  "bad": "#B3473A",
+  "maximum": "#8B4A2B",
+  "center": "#C98B5E",
+  "minimum": "#F3EDE4",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#2B2B2B",
+      "fontSize": 12
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#6E665E"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#2B2B2B"
+    }
+  }
+}
